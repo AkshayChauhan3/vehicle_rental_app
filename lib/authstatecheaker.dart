@@ -10,33 +10,44 @@ class AuthChecker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      return FutureBuilder<DocumentSnapshot>(
-        future: FirebaseFirestore.instance
-            .collection('users')
-            .doc(user.uid)
-            .get(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            );
-          }
-          if (snapshot.hasError ||
-              !snapshot.hasData ||
-              !snapshot.data!.exists) {
-            return const LoginPage();
-          }
-          final data = snapshot.data!.data() as Map<String, dynamic>;
-          final userType = data['userType'] ?? 'User';
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
 
-          return userType == 'Owner'
-              ? const OwnerHomePageView()
-              : const UserHomePageView();
-        },
-      );
-    }
-    return const LoginPage();
+        final user = snapshot.data;
+        if (user == null) {
+          return const LoginPage();
+        }
+
+        return FutureBuilder<DocumentSnapshot>(
+          future: FirebaseFirestore.instance
+              .collection('users')
+              .doc(user.uid)
+              .get(),
+          builder: (context, userSnapshot) {
+            if (userSnapshot.connectionState == ConnectionState.waiting) {
+              return const Scaffold(
+                body: Center(child: CircularProgressIndicator()),
+              );
+            }
+            if (!userSnapshot.hasData || !userSnapshot.data!.exists) {
+              return const LoginPage();
+            }
+
+            final data = userSnapshot.data!.data() as Map<String, dynamic>;
+            final userType = data['userType'] ?? 'User';
+
+            return userType == 'Owner'
+                ? const OwnerHomePageView()
+                : const UserHomePageView();
+          },
+        );
+      },
+    );
   }
 }
