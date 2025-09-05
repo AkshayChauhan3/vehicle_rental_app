@@ -14,7 +14,7 @@ class AuthChecker extends StatelessWidget {
     if (user != null) {
       return FutureBuilder<DocumentSnapshot>(
         future: FirebaseFirestore.instance
-            .collection('users')  
+            .collection('users')
             .doc(user.uid)
             .get(),
         builder: (context, snapshot) {
@@ -23,7 +23,9 @@ class AuthChecker extends StatelessWidget {
               body: Center(child: CircularProgressIndicator()),
             );
           }
-          if (snapshot.hasError || !snapshot.hasData || !snapshot.data!.exists) {
+          if (snapshot.hasError ||
+              !snapshot.hasData ||
+              !snapshot.data!.exists) {
             return const LoginPage();
           }
           final data = snapshot.data!.data() as Map<String, dynamic>;
@@ -33,7 +35,6 @@ class AuthChecker extends StatelessWidget {
               ? const OwnerHomePageView()
               : const UserHomePageView();
         },
-
       );
     }
     return const LoginPage();
