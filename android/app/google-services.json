@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1063314638875",
+    "project_id": "vehiclerentalapp-8a8ab",
+    "storage_bucket": "vehiclerentalapp-8a8ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063314638875:android:ff2a0fdce6d4aa2a2510be",
+        "android_client_info": {
+          "package_name": "com.example.vehicalrentalapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063314638875-jkt9s5cpo7dq7od8mravumjn2pt3kdoa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5Zqr_90P1STktaCom9bEK7pRCIfvm3os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063314638875-jkt9s5cpo7dq7od8mravumjn2pt3kdoa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1063314638875-r1u915bim7u7fohuh4j1o4ri0pivaq5l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vehicleRentalApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
