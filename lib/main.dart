@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:vehicalrentalapp/authstatecheaker.dart';
-import 'package:vehicalrentalapp/firebase_options.dart';
+import 'package:CarRentalApp/authstatecheaker.dart';
+import 'package:CarRentalApp/firebase_options.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

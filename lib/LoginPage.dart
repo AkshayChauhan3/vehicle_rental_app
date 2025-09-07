@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:vehicalrentalapp/OwnerHomePage.dart';
-import 'package:vehicalrentalapp/RegistrationPage.dart';
-import 'package:vehicalrentalapp/UserHomePage.dart';
+import 'package:CarRentalApp/OwnerHomePage.dart';
+import 'package:CarRentalApp/RegistrationPage.dart';
+import 'package:CarRentalApp/UserHomePage.dart';
 
 
 class LoginPage extends StatefulWidget {

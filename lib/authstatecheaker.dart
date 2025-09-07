@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:vehicalrentalapp/LoginPage.dart';
-import 'package:vehicalrentalapp/OwnerHomePage.dart';
-import 'package:vehicalrentalapp/UserHomePage.dart';
+// ignore: depend_on_referenced_packages
+import 'package:CarRentalApp/LoginPage.dart';
+import 'package:CarRentalApp/OwnerHomePage.dart';
+import 'package:CarRentalApp/UserHomePage.dart';
 
 class AuthChecker extends StatelessWidget {
   const AuthChecker({super.key});
